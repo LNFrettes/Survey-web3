@@ -11,7 +11,7 @@ function QuizResult({answers}: any){
             {answers.map((answer: Array<string>, index: number) => {
                 return(
                     <div>
-                        <p >Question {index + 1}: {'null' || answer}</p>
+                        <p >Question {index + 1}: {answer || 'null' }</p>
                     </div>
                 )
             })}
