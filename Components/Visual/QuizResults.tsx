@@ -15,7 +15,7 @@ function QuizResult({answers}: any){
                     </div>
                 )
             })}
-            <Button onClick={() => {mintToken()}}>Submit</Button>
+            <Button variant='contained'  onClick={() => {mintToken()}}>Submit</Button>
         </Box>
 
     )

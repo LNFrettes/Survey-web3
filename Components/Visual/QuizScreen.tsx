@@ -29,7 +29,7 @@ function QuizScreen(){
         }
         }>
             {
-            startQuiz ? <Button onClick={() => {setStartQuiz(false)}}> Start </Button> : (isQuestionEnd ? (<QuizResult answers={markedAnswers}/>) : (
+            startQuiz ? <Button variant='outlined' onClick={() => {setStartQuiz(false)}}> Start </Button> : (isQuestionEnd ? (<QuizResult answers={markedAnswers}/>) : (
                 <Question 
                     question = {Questions[currentQuestionIndex]}
                     totalQuestions = {Questions.length}

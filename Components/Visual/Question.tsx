@@ -46,7 +46,7 @@ function Question({question , totalQuestions, currentQuestion, setAnswer}: any){
                     {
                         question.options.map((option: any, index: number)=>{
                             return(
-                                <Button key={index}  onClick={()=> {setSeletedOption(option.text)}}> 
+                                <Button  key={index}  onClick={()=> {setSeletedOption(option.text)}}> 
                                     <p>{option.text}</p>
                                 </Button>
                             )
@@ -54,7 +54,7 @@ function Question({question , totalQuestions, currentQuestion, setAnswer}: any){
                     }
                 </Stack>
 
-                <Button key={'next'} onClick={() => {gotoNextQuestion()}} sx={{alignSelf: 'flex-end',}}> next </Button>
+                <Button key={'next'}  variant='contained' onClick={() => {gotoNextQuestion()}} > next </Button>
             </div>
         </Box>
     )

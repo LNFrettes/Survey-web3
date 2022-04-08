@@ -69,6 +69,7 @@ const Home: NextPage = () => {
         <div className={styles.container}>
             <AppBar  sx={{padding: 1, position: 'static',}} >
               <p>balance: {tokenbalance}</p>
+              <Button variant='contained' onClick={()=> userBalance()}>Refresh Balance</Button>
             </AppBar>
             <Container>
             <h1>RatherLabs Quiz</h1>
