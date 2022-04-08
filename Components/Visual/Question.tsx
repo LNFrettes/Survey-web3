@@ -3,10 +3,12 @@ import { useEffect, useRef, useState} from "react"
 import { flushSync } from "react-dom"
 
 
-function Question({question, totalQuestions, currentQuestion, setAnswer}){
+
+
+function Question({question , totalQuestions, currentQuestion, setAnswer}: any){
 
     const [selectedOption, setSeletedOption] = useState(null)
-    const timer = useRef(null)
+    const timer = useRef(0)
     const progressBar = useRef(null)
 
     function gotoNextQuestion(){
@@ -26,7 +28,7 @@ function Question({question, totalQuestions, currentQuestion, setAnswer}){
         // setTimeout(()=>{
         //     progressBar.current.classList.add('active')
         // }, 0)
-        timer.current = setTimeout(gotoNextQuestion, question.lifetimeSeconds*1000);
+        timer.current = window.setTimeout(gotoNextQuestion, question.lifetimeSeconds*1000);
   
     }, [question])
 
