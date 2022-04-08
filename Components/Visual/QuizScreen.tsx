@@ -1,4 +1,4 @@
-import { AppBar, Button } from '@mui/material';
+import { AppBar, Box, Button } from '@mui/material';
 import { copyFileSync } from 'fs';
 import { useState } from 'react'
 import SurveyData from '../../Data/SurveyData.json'
@@ -20,6 +20,14 @@ function QuizScreen(){
         
     return(
         <div>
+        <Box sx={{
+               border: 1,
+               borderColor: 'grey.500',
+               borderRadius: 5,
+               padding: 2,
+               display: 'flex' ,
+        }
+        }>
             {
             startQuiz ? <Button onClick={() => {setStartQuiz(false)}}> Start </Button> : (isQuestionEnd ? (<QuizResult answers={markedAnswers}/>) : (
                 <Question 
@@ -36,6 +44,7 @@ function QuizScreen(){
                         setCurrentQuestionIndex(currentQuestionIndex + 1)
                     }}
                     />))}
+        </Box>
         </div>
     )
 }

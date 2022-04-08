@@ -1,6 +1,7 @@
-import { Button } from "@mui/material"
+import { Box, Button } from "@mui/material"
 import { useEffect, useRef, useState} from "react"
 import { flushSync } from "react-dom"
+import {Stack} from '@mui/material'
 
 
 
@@ -35,32 +36,27 @@ function Question({question , totalQuestions, currentQuestion, setAnswer}: any){
  
 
     return(
-        <div>
-            <h2>aa</h2>
+        <Box sx={{display: 'flex'}}>
             <div className='progress-bar' ref={progressBar}>
-                <p>{currentQuestion}</p>
-                
-                <p>{totalQuestions}</p>
+                <p>Question {currentQuestion} of {totalQuestions}</p>
                 <p>{question.text}</p>
-                <img src={question.image}></img>
-                
-                {
-                    question.options.map((option: any, index: number)=>{
-                        return(
-                            <div>
+                <img src={question.image} height='100px'></img>
 
+                <Stack direction="row" spacing={2}>              
+                    {
+                        question.options.map((option: any, index: number)=>{
+                            return(
+                                <Button key={index}  onClick={()=> {setSeletedOption(option.text)}}> 
+                                    <p>{option.text}</p>
+                                </Button>
+                            )
+                        })
+                    }
+                </Stack>
 
-                            <Button key={index}  onClick={()=> {setSeletedOption(option.text)}}> 
-                                <p>{option.text}</p>
-                            </Button>
-                            </div>
-                        )
-                    })
-                }
-
-                <Button key={'next'} onClick={() => {gotoNextQuestion()}}> next </Button>
+                <Button key={'next'} onClick={() => {gotoNextQuestion()}} sx={{alignSelf: 'flex-end',}}> next </Button>
             </div>
-        </div>
+        </Box>
     )
 
 }

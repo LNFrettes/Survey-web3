@@ -23,14 +23,15 @@ const Home: NextPage = () => {
   
   
 
+
   async function userBalance() {
     const userBalance = await  getBalance()
     setTokenbalance(userBalance)
   };
 
   async function conection() {
-    if(!window.ethereum){
-      alert('install metamask')
+    if (!window.ethereum) {
+      window.open("https://metamask.io/download/", "_blank");
     }else{
      
         await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -58,21 +59,22 @@ const Home: NextPage = () => {
     window.ethereum.on('networkChanged', function(){
       conection()
     })
+
   };
     
-  
 
+  
 
     return (
         <div className={styles.container}>
-            <AppBar position='static' >
+            <AppBar  sx={{padding: 1, position: 'static',}} >
               <p>balance: {tokenbalance}</p>
             </AppBar>
             <Container>
             <h1>RatherLabs Quiz</h1>
-            <img src={SurveyData[0].image}></img>
+            <img src={SurveyData[0].image} width='200px'></img>
             {ropsten ? <Button variant="contained" color="error" onClick={() => changeToRopsten() }>Change to Ropsten</Button>: null}
-            {!ropsten ? <QuizScreen/> : null}
+            {!ropsten ? <QuizScreen /> : null}
           </Container>
         </div>
     );
