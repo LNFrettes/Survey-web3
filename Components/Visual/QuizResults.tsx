@@ -1,7 +1,7 @@
 import { Button } from "@mui/material"
 import { getBalance, mintToken } from "../Functional/connections"
 
-function QuizResult({answers}){
+function QuizResult({answers}: any){
 
     function refreshBalance(){
         getBalance()

@@ -11,6 +11,8 @@ import SurveyData from '../Data/SurveyData.json'
 
 import styles from '../styles/Home.module.css';
 
+declare var window: any
+
 
 
 const Home: NextPage = () => { 
@@ -32,7 +34,7 @@ const Home: NextPage = () => {
     }else{
      
         await window.ethereum.request({ method: 'eth_requestAccounts' });
-          const net = await ethereum.request({ method: 'net_version' });
+          const net = await window.ethereum.request({ method: 'net_version' });
           if(net !== '3'){
             console.log('aoest')
             setRopsten(true)
@@ -47,7 +49,7 @@ const Home: NextPage = () => {
   conection()
   
   async function changeToRopsten (){
-    await ethereum.request({method: 'wallet_switchEthereumChain', params: [{"chainId": "0x3"}]});
+    await window.ethereum.request({method: 'wallet_switchEthereumChain', params: [{"chainId": "0x3"}]});
     setRopsten(false)
     
   }
