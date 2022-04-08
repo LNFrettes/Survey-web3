@@ -1,11 +1,11 @@
 import Web3 from "web3";
 import  abi from '../../Data/abi.json'
 import { renderRopstenButton } from "../../src/Actions";
+import {AbiItem} from 'web3-utils'
 
 
 const web = new Web3('https://eth-ropsten.alchemyapi.io/v2/__kRrTi_nV3c2CZMzKkw0QfH44AVZ8_L')
-
-var contract = new  web.eth.Contract(abi, '0x74F0B668Ea3053052DEAa5Eedd1815f579f0Ee03')
+var contract = new  web.eth.Contract(abi as AbiItem[], '0x74F0B668Ea3053052DEAa5Eedd1815f579f0Ee03')
 
 
   
